@@ -40,7 +40,7 @@ public class UserFacadeImpl implements UserFacade {
     private List<User> mergeUsers(List<User> users, List<User> cityUsers, String city, int radius) {
         List<User> userList = getUsersWithinRadius(users, city, radius);
         userList.addAll(cityUsers.stream()
-                .filter(londonUser -> !userList.contains(londonUser))
+                .filter(cityUser -> !userList.contains(cityUser))
                 .collect(Collectors.toList()));
         return userList;
     }
